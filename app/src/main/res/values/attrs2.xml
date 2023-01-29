@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <declare-styleable name="ButtonBuzzer" >
-        <attr name="buzzerColor" format="color"/>
-        <attr name="stroke_buzzerColor" format="color"/>
-    </declare-styleable>
-
-
-</resources>

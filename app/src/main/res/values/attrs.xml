@@ -14,4 +14,9 @@
         <attr name="separatorColor" format="color" />
         <attr name="numColumns" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="ButtonBuzzer" >
+        <attr name="buzzerColor" format="color"/>
+        <attr name="stroke_buzzerColor" format="color"/>
+    </declare-styleable>
 </resources>
