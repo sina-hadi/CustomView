@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Custom View</string>
+    <string name="swap_color">SWAP COLOR</string>
 </resources>

@@ -15,7 +15,9 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
             "Compound Control",
             "DoubleImageView",
             "BoxGridLayout",
-            "ButtonBuzzer"
+            "ButtonBuzzer",
+            "ColorLine",
+            "Shapes"
     };
 
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,16 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
             }
             case 4: {
                 Intent i = new Intent(this, ButtonBuzzerActivity.class);
+                startActivity(i);
+                break;
+            }
+            case 5: {
+                Intent i = new Intent(this, ColorLineActivity.class);
+                startActivity(i);
+                break;
+            }
+            case 6: {
+                Intent i = new Intent(this, ShapesActivity.class);
                 startActivity(i);
                 break;
             }
