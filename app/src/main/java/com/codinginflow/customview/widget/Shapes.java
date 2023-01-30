@@ -2,17 +2,26 @@ package com.codinginflow.customview.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 
 import androidx.annotation.Nullable;
 
 import com.codinginflow.customview.R;
+
+import java.sql.Time;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Shapes extends View {
 
@@ -26,6 +35,8 @@ public class Shapes extends View {
     private Paint mPaintCircle;
     private float radius = 100f;
     private float cx, cy;
+
+    private Bitmap mImage;
 
     private boolean state = false;
 
@@ -60,11 +71,51 @@ public class Shapes extends View {
         swapColor();
         ta.recycle();
 
+        mImage = BitmapFactory.decodeResource(getResources(), R.drawable.rick_morty);
+
+        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+            @Override
+            public void onGlobalLayout() {
+                int padding = 50;
+                getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                mImage = getResizedBitmap(mImage, getWidth() - padding, getHeight() - padding);
+
+                new Timer().scheduleAtFixedRate(new TimerTask() {
+                    @Override
+                    public void run() {
+                        int newWidth = mImage.getWidth() - 10;
+                        int newHeight = mImage.getHeight() - 10;
+
+                        if (newWidth <= 0 || newHeight <= 0) {
+                            cancel();
+                            return;
+                        }
+
+                        mImage = getResizedBitmap(mImage, newWidth, newHeight);
+                        postInvalidate();
+                    }
+                }, 5001, 200);
+            }
+        });
+
         mPaintCircle = new Paint();
         mPaintCircle.setAntiAlias(true);
         mPaintCircle.setColor(Color.parseColor("#00ccff"));
 
     }
+
+    private Bitmap getResizedBitmap(Bitmap bitmap, int width, int height) {
+        Matrix matrix = new Matrix();
+
+        RectF src = new RectF(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        RectF dst = new RectF(0, 0, width, height);
+
+        matrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER);
+
+        return Bitmap.createBitmap(bitmap, 0, 0 ,bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+
+    }
+
 
     public void swapColor() {
         mPaintSquare.setColor(mPaintSquare.getColor() == mSquareColor ? Color.RED : mSquareColor);
@@ -90,6 +141,11 @@ public class Shapes extends View {
             cy = mRectSquare.top + (mRectSquare.height() / 2);
         }
         canvas.drawCircle(cx, cy, radius, mPaintCircle);
+
+        float imageX = (getWidth() - mImage.getWidth()) /2;
+        float imageY = (getHeight() - mImage.getHeight()) /2;
+
+        canvas.drawBitmap(mImage, imageX, imageY, null);
     }
 
     @Override
