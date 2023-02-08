@@ -91,7 +91,9 @@ public class Shapes extends View {
                         int newWidth = mImage.getWidth() - 10;
                         int newHeight = mImage.getHeight() - 10;
 
-                        if (newWidth <= 0 || newHeight <= 0) {
+                        if (newWidth <= 10 || newHeight <= 10) {
+                            mImage = getResizedBitmap(mImage, 1, 1);
+                            postInvalidate();
                             cancel();
                             return;
                         }
@@ -99,7 +101,7 @@ public class Shapes extends View {
                         mImage = getResizedBitmap(mImage, newWidth, newHeight);
                         postInvalidate();
                     }
-                }, 5001, 200);
+                }, 3001, 100);
             }
         });
 
