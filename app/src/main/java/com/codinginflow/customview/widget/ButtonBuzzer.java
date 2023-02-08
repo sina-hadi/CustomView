@@ -36,7 +36,7 @@ public class ButtonBuzzer extends CompoundButton {
     private void GetAttributes(AttributeSet attrs) {
         TypedArray a = getContext()
                 .getTheme()
-                .obtainStyledAttributes(attrs , R.styleable.ButtonBuzzer ,0, 0);
+                .obtainStyledAttributes(attrs, R.styleable.ButtonBuzzer, 0, 0);
 
         try {
             buzzerColor = a.getColor(R.styleable.ButtonBuzzer_buzzerColor, Color.RED);
@@ -92,11 +92,11 @@ public class ButtonBuzzer extends CompoundButton {
 
         float space = (Math.min(width, height) / 10);
 
-        float TL2x = (width/10) + space;
-        float TL2y = space/2;
+        float TL2x = (width / 10) + space;
+        float TL2y = space / 2;
 
-        float TL1x = space/2;
-        float TL1y = (height/10) + space;
+        float TL1x = space / 2;
+        float TL1y = (height / 10) + space;
 
         float BL1x = TL1x;
         float BL1y = height - TL1y;
@@ -118,28 +118,28 @@ public class ButtonBuzzer extends CompoundButton {
 
         path.moveTo(TL2x, TL2y);
         path.lineTo(TL1x, TL1y);
-        path.lineTo((width/2)-space, height/2);
+        path.lineTo((width / 2) - space, height / 2);
         path.lineTo(BL1x, BL1y);
         path.lineTo(BL2x, BL2y);
-        path.lineTo(width/2, (height/2)+space);
+        path.lineTo(width / 2, (height / 2) + space);
         path.lineTo(BR1x, BR1y);
         path.lineTo(BR2x, BR2y);
-        path.lineTo((width/2)+space, height/2);
+        path.lineTo((width / 2) + space, height / 2);
         path.lineTo(TR1x, TR1y);
         path.lineTo(TR2x, TR2y);
-        path.lineTo(width/2, (height/2)-space);
-        path.lineTo(TL2x-space/9, TL2y-space/9);
+        path.lineTo(width / 2, (height / 2) - space);
+        path.lineTo(TL2x - space / 9, TL2y - space / 9);
 
         paint.setColor(buzzerColor);
 
-        if (this.isChecked()){
+        if (this.isChecked()) {
             paint.setStyle(Paint.Style.FILL);
             canvas.drawPath(path, paint);
         }
 
         paint.setColor(stroke_buzzerColor);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(space/3);
+        paint.setStrokeWidth(space / 3);
         canvas.drawPath(path, paint);
 
     }

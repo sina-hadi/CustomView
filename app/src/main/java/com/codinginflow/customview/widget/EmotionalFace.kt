@@ -44,14 +44,18 @@ class EmotionalFace(context: Context?, attrs: AttributeSet?) : View(context, att
     private fun setupAttributes(attrs: AttributeSet?) {
 
         // Obtain a typed array of attributes
-        val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.EmotionalFaceView,
-            0, 0)
+        val typedArray = context.theme.obtainStyledAttributes(
+            attrs, R.styleable.EmotionalFaceView,
+            0, 0
+        )
 
         // Extract custom attributes into member variables
-        happinessState = typedArray.getInt(R.styleable.EmotionalFaceView_state, HAPPY.toInt()).toLong()
+        happinessState =
+            typedArray.getInt(R.styleable.EmotionalFaceView_state, HAPPY.toInt()).toLong()
         faceColor = typedArray.getColor(R.styleable.EmotionalFaceView_faceColor, DEFAULT_FACE_COLOR)
         eyesColor = typedArray.getColor(R.styleable.EmotionalFaceView_eyesColor, DEFAULT_EYES_COLOR)
-        mouthColor = typedArray.getColor(R.styleable.EmotionalFaceView_mouthColor, DEFAULT_MOUTH_COLOR)
+        mouthColor =
+            typedArray.getColor(R.styleable.EmotionalFaceView_mouthColor, DEFAULT_MOUTH_COLOR)
         borderColor = typedArray.getColor(
             R.styleable.EmotionalFaceView_borderColor,
             DEFAULT_BORDER_COLOR

@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Custom View</string>
     <string name="swap_color">SWAP COLOR</string>
+    <string name="save_entry">Save Entry</string>
+    <string name="email">Email</string>
+    <string name="first_name">First Name</string>
+    <string name="_5_5">5 - 5</string>
 </resources>

@@ -1,11 +1,9 @@
 package com.codinginflow.customview;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
-
 import com.codinginflow.customview.widget.Shapes;
 
 public class ShapesActivity extends AppCompatActivity {

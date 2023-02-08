@@ -8,8 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        app:separatorWidth="2dp"
-        app:numColumns="2">
+        app:numColumns="2"
+        app:separatorWidth="2dp">
 
         <include layout="@layout/box_small" />
 

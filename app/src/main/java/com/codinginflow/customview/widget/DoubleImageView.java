@@ -1,25 +1,3 @@
-/**
- * Copyright (c) 2013 Wireless Designs, LLC
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 package com.codinginflow.customview.widget;
 
 import android.content.Context;
@@ -34,6 +12,7 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+
 import com.codinginflow.customview.R;
 
 public class DoubleImageView extends View {
@@ -163,7 +142,7 @@ public class DoubleImageView extends View {
             textWidth = mTextLayout.getWidth();
         }
 
-        return (int)(leftWidth * 0.67f) + (int)(rightWidth * 0.67f) + mSpacing + textWidth;
+        return (int) (leftWidth * 0.67f) + (int) (rightWidth * 0.67f) + mSpacing + textWidth;
     }
 
     private int getDesiredHeight() {
@@ -181,7 +160,7 @@ public class DoubleImageView extends View {
             rightHeight = mRightDrawable.getIntrinsicHeight();
         }
 
-        return (int)(leftHeight * 0.67f) + (int)(rightHeight * 0.67f);
+        return (int) (leftHeight * 0.67f) + (int) (rightHeight * 0.67f);
     }
 
     private void updateContentBounds() {
@@ -189,7 +168,7 @@ public class DoubleImageView extends View {
             mText = "";
         }
         float textWidth = mTextPaint.measureText(mText, 0, mText.length());
-        mTextLayout = new StaticLayout(mText, mTextPaint, (int)textWidth,
+        mTextLayout = new StaticLayout(mText, mTextPaint, (int) textWidth,
                 Layout.Alignment.ALIGN_CENTER, 1f, 0f, true);
 
         int left = (getWidth() - getDesiredWidth()) / 2;

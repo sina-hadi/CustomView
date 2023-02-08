@@ -11,6 +11,6 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:buzzerColor="#BC1313"
-        app:stroke_buzzerColor="#2C2C2C"/>
+        app:stroke_buzzerColor="#2C2C2C" />
 
 </RelativeLayout>

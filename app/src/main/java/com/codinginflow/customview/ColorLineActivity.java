@@ -1,7 +1,6 @@
 package com.codinginflow.customview;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class ColorLineActivity extends AppCompatActivity {

@@ -58,7 +58,7 @@ public class ColorLine extends View {
 
         canvas.getClipBounds(rect);
 
-        halfWidth = rect.width()/2;
+        halfWidth = rect.width() / 2;
         rect.right = rect.right - halfWidth;
 
         canvas.drawRect(rect, paint);

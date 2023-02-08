@@ -78,7 +78,7 @@ public class Shapes extends View {
 
         mImage = BitmapFactory.decodeResource(getResources(), R.drawable.rick_morty);
 
-        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 int padding = 50;
@@ -121,7 +121,7 @@ public class Shapes extends View {
 
         matrix.setRectToRect(src, dst, Matrix.ScaleToFit.CENTER);
 
-        return Bitmap.createBitmap(bitmap, 0, 0 ,bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 
     }
 
@@ -162,8 +162,8 @@ public class Shapes extends View {
         }
         canvas.drawCircle(cx, cy, radius, mPaintCircle);
 
-        canvas.drawArc(indicator1, 180, 180, true,mPaintCircle);
-        canvas.drawArc(indicator2, 180, 180, true,mPaintIndicator);
+        canvas.drawArc(indicator1, 180, 180, true, mPaintCircle);
+        canvas.drawArc(indicator2, 180, 180, true, mPaintIndicator);
 
         float imageX = (getWidth() - mImage.getWidth()) / 2;
         float imageY = (getHeight() - mImage.getHeight()) / 2;
@@ -213,4 +213,3 @@ public class Shapes extends View {
         return value;
     }
 }
-
