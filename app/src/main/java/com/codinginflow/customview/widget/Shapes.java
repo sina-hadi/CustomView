@@ -19,7 +19,6 @@ import androidx.annotation.Nullable;
 
 import com.codinginflow.customview.R;
 
-import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,6 +27,10 @@ public class Shapes extends View {
     private static final int SQUARE_SIZE = 300;
     private Rect mRectSquare;
     private Paint mPaintSquare;
+
+    private RectF indicator1;
+    private RectF indicator2;
+    private Paint mPaintIndicator;
 
     private int mSquareColor;
     private int mSquareSize;
@@ -63,6 +66,8 @@ public class Shapes extends View {
     public void init(@Nullable AttributeSet set) {
 
         mRectSquare = new Rect();
+        indicator1 = new RectF();
+        indicator2 = new RectF();
         mPaintSquare = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         TypedArray ta = getContext().obtainStyledAttributes(set, R.styleable.Shapes);
@@ -102,6 +107,10 @@ public class Shapes extends View {
         mPaintCircle.setAntiAlias(true);
         mPaintCircle.setColor(Color.parseColor("#00ccff"));
 
+        mPaintIndicator = new Paint();
+        mPaintIndicator.setAntiAlias(true);
+        mPaintIndicator.setColor(Color.parseColor("#FFFFFF"));
+
     }
 
     private Bitmap getResizedBitmap(Bitmap bitmap, int width, int height) {
@@ -134,6 +143,17 @@ public class Shapes extends View {
         mRectSquare.right = mRectSquare.left + mSquareSize;
         mRectSquare.bottom = mRectSquare.top + mSquareSize;
 
+        indicator1.left = 500;
+        indicator1.top = 800;
+        indicator1.right = indicator1.left + 400;
+        indicator1.bottom = indicator1.top + 400;
+
+        indicator2.left = 550;
+        indicator2.top = 850;
+        indicator2.right = indicator2.left + 300;
+        indicator2.bottom = indicator2.top + 300;
+
+
         canvas.drawRect(mRectSquare, mPaintSquare);
 
         if (cy == 0f || cx == 0f) {
@@ -142,10 +162,14 @@ public class Shapes extends View {
         }
         canvas.drawCircle(cx, cy, radius, mPaintCircle);
 
-        float imageX = (getWidth() - mImage.getWidth()) /2;
-        float imageY = (getHeight() - mImage.getHeight()) /2;
+        canvas.drawArc(indicator1, 180, 180, true,mPaintCircle);
+        canvas.drawArc(indicator2, 180, 180, true,mPaintIndicator);
+
+        float imageX = (getWidth() - mImage.getWidth()) / 2;
+        float imageY = (getHeight() - mImage.getHeight()) / 2;
 
         canvas.drawBitmap(mImage, imageX, imageY, null);
+
     }
 
     @Override

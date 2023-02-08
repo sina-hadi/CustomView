@@ -17,7 +17,8 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
             "BoxGridLayout",
             "ButtonBuzzer",
             "ColorLine",
-            "Shapes"
+            "Shapes",
+            "EmotionalFace"
     };
 
     public void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,11 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
             }
             case 6: {
                 Intent i = new Intent(this, ShapesActivity.class);
+                startActivity(i);
+                break;
+            }
+            case 7: {
+                Intent i = new Intent(this, EmotionalFaceActivity.class);
                 startActivity(i);
                 break;
             }
